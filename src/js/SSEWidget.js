@@ -50,7 +50,7 @@ export default class SSEWidget {
     if (e.event === 'freekick') image = `${this.url}/img/freekick.jpg`;
     if (e.event === 'goal') image = `${this.url}/img/goal.jpg`;
     return {
-      id: e.lastEventId,
+      id: data.id,
       image,
       date: moment(data.date).format('HH:mm:ss MM.DD.YYYY'),
       description: data.description,
@@ -61,8 +61,8 @@ export default class SSEWidget {
     const data = JSON.parse(evt.data);
     const events = [];
     data.forEach((e) => {
-      if (!this.eventsId.includes(e.lastEventId)) {
-        this.eventsId.push(e.lastEventId);
+      if (!this.eventsId.includes(e.id)) {
+        this.eventsId.push(e.id);
         events.push(this.formatEvent(e));
       }
     });

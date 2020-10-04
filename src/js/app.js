@@ -1,4 +1,4 @@
 import SSEWidget from './SSEWidget';
 
 // eslint-disable-next-line no-new
-new SSEWidget('http://localhost:7070');
+new SSEWidget('https://ahj-sse-ws-backend-1.herokuapp.com');
